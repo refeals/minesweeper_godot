@@ -83,7 +83,8 @@ func drawPieces() -> void:
   for i in range(width):
     for j in range(height):
       var instance = piece.instance()
-      instance.x = i * pieceSize
-      instance.y = j * pieceSize
+      instance.x = i
+      instance.y = j
+      instance.position = Vector2(i * pieceSize, j * pieceSize)
       instance.value = data[i][j]
       add_child(instance)
