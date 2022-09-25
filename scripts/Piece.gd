@@ -18,8 +18,11 @@ func _on_Piece_input_event(_node, event: InputEvent, _shape_idx: int) -> void:
   if event.is_action_pressed("ui_mouse_left"):
     if not opened:
       setOpened()
-      print(x, y)
 
 func setOpened():
-  opened = true
-  sprite.region_rect = Rect2(x_pos[value], y_pos[value], pieceSize, pieceSize)
+  if not opened:
+    opened = true
+    sprite.region_rect = Rect2(x_pos[value], y_pos[value], pieceSize, pieceSize)
+
+    if value == 0:
+      get_parent().openAdjacentPieces(x, y)

@@ -5,3 +5,4 @@
 [node name="Board" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 1 )
+bombs = 10
